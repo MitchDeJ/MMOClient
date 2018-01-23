@@ -1,18 +1,25 @@
-package game;
+package game.model.entity.player;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
+import client.net.packets.types.KeyStatePacket;
+import client.net.packets.types.Packet;
+import game.Game;
 import game.graphics.SpriteRepository;
+import game.model.entity.LivingEntity;
 
 public class Player extends LivingEntity {
+	
+	private KeyState keys = new KeyState();
+	private KeyState prevKeys = keys;
 	
 	public Player() {
 		
 		setRenderOffset(-16, -40);
 		
-		x = 2.5;
-		y = 4;
+		x = 8;
+		y = 4.5;
 	}
 	
 	public void render(Graphics g) {
@@ -32,7 +39,20 @@ public class Player extends LivingEntity {
 	}
 
 	public void tick() {
-		//
+		checkKeys();
+	}
+
+	public KeyState getKeys() {
+		return keys;
+	}
+	
+	private void checkKeys() {
+		if (keys.changed(prevKeys)) {
+			 Packet packet = new KeyStatePacket(getKeys());
+			 packet.sendData(Game.getClient().getConnection());
+		}
+		
+			prevKeys = keys;
 	}
 
 }

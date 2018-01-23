@@ -1,8 +1,9 @@
-package game;
+package game.model.map;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import game.model.entity.WorldObject;
 import json.JSONArray;
 import json.JSONObject;
 import json.parser.JSONParser;

@@ -4,10 +4,12 @@ import client.Client;
 import client.Config;
 import game.graphics.GameWindow;
 import game.graphics.Renderer;
+import game.model.entity.player.Player;
+import game.model.map.Area;
 
 public class Game implements Runnable {
 	 
-	private Client client;
+	private static Client client;
 	
 	private boolean running = false;
 	private Thread thread;
@@ -78,7 +80,8 @@ public class Game implements Runnable {
 		config = client.getConfig();
 		renderer = new Renderer(this);// RENDERER HAS TO BE INIT'ED BEFORE THE GAME WINDOW
 		window = new GameWindow(config.windowWidth, config.windowHeight, config.windowName, renderer);
-		player = new Player();
+		player = new Player(); // player has to be added before input handler
+		renderer.addKeyListener(new InputHandler());
 	}
 
 	private void tick() {
@@ -100,6 +103,10 @@ public class Game implements Runnable {
 
 	public static Player getPlayer() {
 		return player;
+	}
+
+	public static Client getClient() {
+		return client;
 	}
 
 

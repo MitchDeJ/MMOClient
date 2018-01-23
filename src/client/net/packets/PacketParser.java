@@ -7,7 +7,7 @@ import client.Client;
 import client.net.packets.types.Packet;
 import client.net.packets.types.PacketTypes;
 import client.net.packets.types.PingPacket;
-import game.AreaManager;
+import game.model.map.AreaManager;
 
 public class PacketParser {
 

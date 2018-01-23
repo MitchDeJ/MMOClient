@@ -1,6 +1,8 @@
-package game;
+package game.model.entity;
 
 import java.awt.Graphics;
+
+import game.model.map.ObjectType;
 
 public class WorldObject extends Entity {
 	

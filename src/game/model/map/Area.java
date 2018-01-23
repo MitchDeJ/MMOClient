@@ -1,4 +1,4 @@
-package game;
+package game.model.map;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -8,6 +8,9 @@ import java.util.Comparator;
 import java.util.List;
 
 import client.Config;
+import game.Game;
+import game.model.entity.Entity;
+import game.model.entity.WorldObject;
 
 public class Area {
 	

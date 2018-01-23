@@ -12,7 +12,7 @@ public class Client implements Runnable {
 	private Config config = new Config();
 	
 	/*networking*/
-	private ServerConnection connection;
+	private  ServerConnection connection;
 	private PacketReceiver packetReceiver;
 	private PacketParser packetParser;
 
