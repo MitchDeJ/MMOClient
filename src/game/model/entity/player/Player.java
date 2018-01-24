@@ -12,7 +12,7 @@ import game.model.entity.LivingEntity;
 public class Player extends LivingEntity {
 	
 	private KeyState keys = new KeyState();
-	private KeyState prevKeys = keys;
+	private KeyState prevKeys = new KeyState();
 	
 	public Player() {
 		
@@ -51,8 +51,7 @@ public class Player extends LivingEntity {
 			 Packet packet = new KeyStatePacket(getKeys());
 			 packet.sendData(Game.getClient().getConnection());
 		}
-		
-			prevKeys = keys;
+			prevKeys.copy(keys);
 	}
 
 }

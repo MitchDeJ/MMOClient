@@ -9,16 +9,22 @@ public class KeyState {
 	
 	
 	public boolean changed(KeyState prevKeys) {
-		if (UP != prevKeys.UP)
-			return true;
-		if (DOWN != prevKeys.DOWN)
-			return true;
-		if (LEFT != prevKeys.LEFT)
-			return true;
-		if (RIGHT != prevKeys.RIGHT)
-			return true;
+		if (UP == prevKeys.UP && 
+			DOWN == prevKeys.DOWN &&
+			LEFT == prevKeys.LEFT &&
+			RIGHT == prevKeys.RIGHT
+			)
+			return false;
 		
-		return false;
+		return true;
+	}
+
+
+	public void copy(KeyState keys) {
+		DOWN = keys.DOWN;
+		UP  = keys.UP;
+		LEFT = keys.LEFT;
+		RIGHT = keys.RIGHT;		
 	}
 
 }
